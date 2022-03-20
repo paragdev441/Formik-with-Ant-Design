@@ -1,0 +1,28 @@
+.AntdForm_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px 15px;
+}
+
+.form_container {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.submit_btn {
+  margin-top: 30px !important;
+}
+
+.form {
+  width: 80%;
+}
+
+.ant-form-item-label {
+  text-align: left !important;
+}
+
+.error {
+  color: red;
+  height: 0;
+}
