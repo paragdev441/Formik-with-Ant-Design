@@ -28,6 +28,16 @@ const AntdForm = () => {
       },
     });
 
+  const handleValidationStatus = key => {
+    return !touched[key] && !errors[key]
+      ? ''
+      : touched[key] && !errors[key]
+      ? 'success'
+      : touched[key] && errors[key]
+      ? 'error'
+      : '';
+  };
+
   return (
     <div className={styles.AntdForm_container}>
       <h1>SignIn Form</h1>
@@ -37,15 +47,7 @@ const AntdForm = () => {
           name="email"
           className={styles.form_container}
           labelAlign="left"
-          validateStatus={
-            !touched.email && !errors.email
-              ? ''
-              : touched.email && !errors.email
-              ? 'success'
-              : touched.email && errors.email
-              ? 'error'
-              : ''
-          }
+          validateStatus={handleValidationStatus('email')}
           hasFeedback
         >
           <Input
@@ -65,15 +67,7 @@ const AntdForm = () => {
           name="password"
           className={styles.form_container}
           labelAlign="left"
-          validateStatus={
-            !touched.password && !errors.password
-              ? ''
-              : touched.password && !errors.password
-              ? 'success'
-              : touched.password && errors.password
-              ? 'error'
-              : ''
-          }
+          validateStatus={handleValidationStatus('password')}
           hasFeedback
         >
           <Input
