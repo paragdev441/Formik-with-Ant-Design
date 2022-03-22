@@ -17,7 +17,10 @@ const AntdForm = () => {
           .email('Invalid email address format')
           .required('Email is required'),
         password: Yup.string()
-          .min(3, 'Password must be 3 characters at minimum')
+          .matches(
+            /^(?=.*[A-Za-z])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{6,}$/,
+            'Password should be atleast 6 characters long and should contain a special symbol!'
+          )
           .required('Password is required'),
       }),
       onSubmit: values => {
